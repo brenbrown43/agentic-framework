@@ -193,4 +193,4 @@ MODEL_PATH=llama3.2:7b
 - 📖 [Documentation](https://github.com/jeweledtech/agentic-framework/wiki)
 - 💬 [GitHub Discussions](https://github.com/jeweledtech/agentic-framework/discussions)
 - 🐛 [Report Issues](https://github.com/jeweledtech/agentic-framework/issues)
-- 📧 [Contact Support](mailto:support@jeweledtech.com)
+- 📧 [Contact Support](mailto:admin@jeweledtech.com)
