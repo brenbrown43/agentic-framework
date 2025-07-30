@@ -1,55 +1,73 @@
 # Getting Started with JeweledTech Agentic Framework
 
-Welcome to the JeweledTech Agentic Framework! This guide will help you get up and running in minutes.
+Welcome to the JeweledTech Agentic Framework! This guide will walk you through setting up and using the framework to build your own multi-agent AI systems.
 
 ## Prerequisites
 
 - Docker and Docker Compose installed
 - Python 3.11+ (for local development)
-- 8GB RAM minimum (for running Ollama)
+- 8GB RAM minimum (16GB recommended for optimal performance)
+- Basic understanding of REST APIs
 
-## Quick Start (Docker)
+## Installation Methods
 
-The fastest way to get started is using Docker:
+### Method 1: Docker (Recommended)
 
-```bash
-# Clone the repository
-git clone https://github.com/jeweledtech/agentic-framework.git
-cd agentic-framework
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/jeweledtech/agentic-framework.git
+   cd agentic-framework
+   ```
 
-# Copy environment configuration
-cp .env.example .env
+2. **Configure environment**
+   ```bash
+   cp .env.example .env
+   # Edit .env if you need custom configuration
+   ```
 
-# Start the framework
-docker-compose up
+3. **Start the framework**
+   ```bash
+   docker-compose up
+   ```
 
-# In another terminal, test the API
-curl http://localhost:8000/health
-```
+   This will:
+   - Pull and start Ollama with the configured model
+   - Build and start the API server
+   - Set up networking between services
 
-The API will be available at `http://localhost:8000` and interactive documentation at `http://localhost:8000/docs`.
+4. **Verify installation**
+   ```bash
+   # Check API health
+   curl http://localhost:8000/health
+   
+   # View API documentation
+   open http://localhost:8000/docs
+   ```
 
-## Quick Start (Local Development)
+### Method 2: Local Development
 
-For local development without Docker:
+1. **Clone and setup**
+   ```bash
+   git clone https://github.com/jeweledtech/agentic-framework.git
+   cd agentic-framework
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+2. **Install and start Ollama**
+   ```bash
+   # Visit https://ollama.ai for installation instructions
+   ollama serve
+   ollama pull llama3.2:latest
+   ```
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Install Ollama (if not already installed)
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Pull the model
-ollama pull llama3.2:3b
-
-# Start the API server
-python api_server.py
-```
+3. **Configure and run**
+   ```bash
+   cp .env.example .env
+   # Update OLLAMA_HOST=http://localhost:11434 in .env
+   python api_server.py
+   ```
 
 ## First Agent Interaction
 
